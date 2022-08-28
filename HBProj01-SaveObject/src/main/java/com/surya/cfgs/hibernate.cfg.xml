@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	
+		<!--JDBC Properties -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="hibernate.connection.username">system</property>
+		<property name="hibernate.connection.password">9014585117</property>
+		
+		<!-- Mapping File name -->
+		<mapping resource="com/surya/entity/Product.hbm.xml" />
+		
+	</session-factory>
+</hibernate-configuration>
