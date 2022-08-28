@@ -23,6 +23,7 @@ public class SaveObjectTest {
 		Session ses = factory.openSession();
 		//Every Non-select  query is work on  TXmgmt Principle i.e We should be in a position to commit or  rollback persistance Activity.
 		Transaction tx = null;
+		
 		try{
 			 //begin Transaction
 			tx=ses.beginTransaction(); // Internally calls  con.setAutoCommit(false) to disable autoCommit mode on DB s/w
@@ -40,7 +41,6 @@ public class SaveObjectTest {
 			 he.printStackTrace();
 			 tx.rollback();
 			System.out.println("Object is  saved [ Record is not inserted ]");
-
 		}
        //close session object
 		ses.close();
