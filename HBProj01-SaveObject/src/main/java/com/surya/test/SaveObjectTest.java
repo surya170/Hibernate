@@ -42,7 +42,10 @@ public class SaveObjectTest {
 			System.out.println("Object is  saved [ Record is not inserted ]");
 
 		}
-
+       //close session object
+		ses.close();
+	 //close sessionFactory object
+		factory.close();
 	} // main method
 
 } // class
