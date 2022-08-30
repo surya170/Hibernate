@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.surya.entity.Product;
 
-public class SaveObjectTest {
+public class PersistanceObjectTest {
 
 	public static void main(String[] args) {
 
@@ -32,13 +32,12 @@ public class SaveObjectTest {
 			tx=ses.beginTransaction(); // Internally calls  con.setAutoCommit(false) to disable autoCommit mode on DB s/w
 			//prepare entity object
 			Product prod = new Product();
-			prod.setPid(1006);
+			prod.setPid(325);
 			prod.setPname("cot4");
 			prod.setPrice(2458.5f);
 			prod.setQty(1.0f);
 			//save object
-			Integer idVal = (Integer) ses.save(prod);  // Gives persistance instruction to hibernate to save object  (insert to save object data as the record ) 
-			 System.out.println("The Gernerated id value :: "+idVal);
+			 ses.persist(prod);  // Gives persistance instruction to hibernate to save object  (insert to save object data as the record ) 
 			tx.commit();  // internally calls con.commit() method to make insertion execution result  permanent.
 			System.out.println("Object is  saved [ Record is inserted ]");
 		}catch(HibernateException he) {
@@ -46,7 +45,6 @@ public class SaveObjectTest {
 		     tx.rollback(); // internally calls con.rollback() method to rollback the results of query execution.
 			System.out.println("Object is  saved [ Record is not inserted ]");
 		}
-		
        //close session object
 		ses.close();
 	 //close sessionFactory object
